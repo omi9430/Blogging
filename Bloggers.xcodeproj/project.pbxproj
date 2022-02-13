@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4208E00E27B922B8003FC6B8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4208E00D27B922B8003FC6B8 /* Extensions.swift */; };
 		4260A0A427B27A6E00298573 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4260A0A327B27A6E00298573 /* AppDelegate.swift */; };
 		4260A0A627B27A6E00298573 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4260A0A527B27A6E00298573 /* SceneDelegate.swift */; };
 		4260A0A827B27A6E00298573 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4260A0A727B27A6E00298573 /* HomeViewController.swift */; };
@@ -25,12 +26,13 @@
 		4260A0DA27B2817000298573 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4260A0D927B2817000298573 /* TabBarViewController.swift */; };
 		4260A0E027B3EF5700298573 /* Viga-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4260A0DF27B3EF5700298573 /* Viga-Regular.ttf */; };
 		42900AEC27B4F6A800B2871A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 42900AEB27B4F6A800B2871A /* GoogleService-Info.plist */; };
-		42900AEF27B6A8B000B2871A /* AuthExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42900AEE27B6A8B000B2871A /* AuthExtensions.swift */; };
+		42900AEF27B6A8B000B2871A /* AuthValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42900AEE27B6A8B000B2871A /* AuthValidation.swift */; };
 		42900AF127B6F42100B2871A /* AuthenticationFunctionsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42900AF027B6F42100B2871A /* AuthenticationFunctionsExtensions.swift */; };
 		63CA96970B4384D0605D55A9 /* Pods_Bloggers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA7B69E0AA0885E7F01E01E5 /* Pods_Bloggers.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4208E00D27B922B8003FC6B8 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		4260A0A027B27A6E00298573 /* Bloggers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bloggers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4260A0A327B27A6E00298573 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4260A0A527B27A6E00298573 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,7 +54,7 @@
 		4260A0DF27B3EF5700298573 /* Viga-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Viga-Regular.ttf"; sourceTree = "<group>"; };
 		42817F9A30B04453F2282F85 /* Pods-Bloggers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bloggers.release.xcconfig"; path = "Target Support Files/Pods-Bloggers/Pods-Bloggers.release.xcconfig"; sourceTree = "<group>"; };
 		42900AEB27B4F6A800B2871A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		42900AEE27B6A8B000B2871A /* AuthExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthExtensions.swift; sourceTree = "<group>"; };
+		42900AEE27B6A8B000B2871A /* AuthValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthValidation.swift; sourceTree = "<group>"; };
 		42900AF027B6F42100B2871A /* AuthenticationFunctionsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationFunctionsExtensions.swift; sourceTree = "<group>"; };
 		94AFC144805E4082F38D4AEE /* Pods-Bloggers.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bloggers.debug.xcconfig"; path = "Target Support Files/Pods-Bloggers/Pods-Bloggers.debug.xcconfig"; sourceTree = "<group>"; };
 		CA7B69E0AA0885E7F01E01E5 /* Pods_Bloggers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bloggers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -210,7 +212,8 @@
 		42900AED27B6A88500B2871A /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				42900AEE27B6A8B000B2871A /* AuthExtensions.swift */,
+				42900AEE27B6A8B000B2871A /* AuthValidation.swift */,
+				4208E00D27B922B8003FC6B8 /* Extensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -337,11 +340,12 @@
 				4260A0C527B27D1F00298573 /* CreateNewPostViewController.swift in Sources */,
 				4260A0C127B27D0700298573 /* ProfileViewController.swift in Sources */,
 				4260A0C727B27D2C00298573 /* AuthenticationViewController.swift in Sources */,
-				42900AEF27B6A8B000B2871A /* AuthExtensions.swift in Sources */,
+				42900AEF27B6A8B000B2871A /* AuthValidation.swift in Sources */,
 				4260A0A427B27A6E00298573 /* AppDelegate.swift in Sources */,
 				4260A0CC27B27D9700298573 /* IAPManager.swift in Sources */,
 				4260A0A627B27A6E00298573 /* SceneDelegate.swift in Sources */,
 				42900AF127B6F42100B2871A /* AuthenticationFunctionsExtensions.swift in Sources */,
+				4208E00E27B922B8003FC6B8 /* Extensions.swift in Sources */,
 				4260A0C927B27D4E00298573 /* LaunchViewController.swift in Sources */,
 				4260A0DA27B2817000298573 /* TabBarViewController.swift in Sources */,
 				4260A0C327B27D1000298573 /* ViewPostViewController.swift in Sources */,
