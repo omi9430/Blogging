@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>967355344471-krof79meme23lgah64n58cp1lpd4163r.apps.googleusercontent.com</string>
+	<string>278088353101-gok69s5rie2a2ftq5671hmq5b62veha6.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.967355344471-krof79meme23lgah64n58cp1lpd4163r</string>
+	<string>com.googleusercontent.apps.278088353101-gok69s5rie2a2ftq5671hmq5b62veha6</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCk5zHrn4-RiInzOqXzJuHjm7pdYxoAb4g</string>
+	<string>AIzaSyB9JQHawY8i0ay5N_U9bwBnTFn_evtassk</string>
 	<key>GCM_SENDER_ID</key>
-	<string>967355344471</string>
+	<string>278088353101</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.thoughtsBloggers</string>
+	<string>com.blatini.bloggers</string>
 	<key>PROJECT_ID</key>
-	<string>blogging-ios-42857</string>
+	<string>test-blatini</string>
 	<key>STORAGE_BUCKET</key>
-	<string>blogging-ios-42857.appspot.com</string>
+	<string>test-blatini.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:967355344471:ios:5ef3afc91535f512f32512</string>
+	<string>1:278088353101:ios:3a7b1666f3ebeb22eba304</string>
 </dict>
 </plist>
