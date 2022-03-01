@@ -1,4 +1,8 @@
 {
+  "identifier" : "3D95A11B",
+  "nonRenewingSubscriptions" : [
+
+  ],
   "products" : [
 
   ],
@@ -6,10 +10,45 @@
 
   },
   "subscriptionGroups" : [
+    {
+      "id" : "653E2183",
+      "localizations" : [
 
+      ],
+      "name" : "Go Premium",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "displayPrice" : "4.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "CBBCC444",
+          "introductoryOffer" : {
+            "displayPrice" : "4.99",
+            "internalID" : "60D68284",
+            "paymentMode" : "payUpFront",
+            "subscriptionPeriod" : "P1M"
+          },
+          "localizations" : [
+            {
+              "description" : "Make Unlimited Posts",
+              "displayName" : "Subscribe",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "com.blatini.bloggers.product",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Go premium",
+          "subscriptionGroupID" : "653E2183",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
   ],
   "version" : {
     "major" : 1,
-    "minor" : 0
+    "minor" : 1
   }
 }

@@ -10,8 +10,8 @@ import UIKit
 class AuthenticationViewController: UIViewController, AuthValidation{
     
     /**
-     - Title Label
      - Segmented Control
+     - Name txtfield
      - Email txtfield
      - Password txtfield
      - Confirm Passwrod txtField
@@ -23,7 +23,7 @@ class AuthenticationViewController: UIViewController, AuthValidation{
     
  
     
-    let segmentedControl : UISegmentedControl = {
+    let segmentedControl: UISegmentedControl = {
         
         var sgControl = UISegmentedControl(items: ["Login", "Register"])
         sgControl.selectedSegmentTintColor = .blue
@@ -32,10 +32,24 @@ class AuthenticationViewController: UIViewController, AuthValidation{
         return sgControl
     }()
     
-    
-    let emailTextField : UITextField = {
+    let nameTxtField: UITextField = {
         
         var txtField = UITextField()
+        txtField.leftViewMode = .always
+        txtField.clearsOnBeginEditing = true
+        txtField.placeholder = "  Enter Full Name"
+        txtField.backgroundColor = .lightGray
+        txtField.layer.cornerRadius = 5
+        txtField.alpha = 0
+        
+        txtField.translatesAutoresizingMaskIntoConstraints = false
+        return txtField
+    }()
+    
+    let emailTextField: UITextField = {
+        
+        var txtField = UITextField()
+        txtField.leftViewMode = .always
         txtField.textAlignment = .left
         txtField.clearsOnBeginEditing = true
         txtField.placeholder = "  Email"
@@ -46,9 +60,10 @@ class AuthenticationViewController: UIViewController, AuthValidation{
     }()
     
     
-    let passwordTxtField : UITextField = {
+    let passwordTxtField: UITextField = {
         
         var txtField = UITextField()
+        txtField.leftViewMode = .always
         txtField.textAlignment = .left
         txtField.clearsOnBeginEditing = true
         txtField.isSecureTextEntry = true
@@ -60,9 +75,10 @@ class AuthenticationViewController: UIViewController, AuthValidation{
         return txtField
     }()
    
-    let confirmPassword : UITextField = {
+    let confirmPassword: UITextField = {
         
         var txtField = UITextField()
+        txtField.leftViewMode = .always
         txtField.textAlignment = .left
         txtField.clearsOnBeginEditing = true
         txtField.isSecureTextEntry = true
@@ -74,7 +90,7 @@ class AuthenticationViewController: UIViewController, AuthValidation{
         return txtField
     }()
     
-    let continueBtn : UIButton =  {
+    let continueBtn: UIButton =  {
         
         var btn = UIButton()
         btn.setTitle("Continue", for: .normal)
@@ -88,7 +104,7 @@ class AuthenticationViewController: UIViewController, AuthValidation{
         return btn
     }()
     
-    let emailWarningLbl : UILabel = {
+    let emailWarningLbl: UILabel = {
         
         let label = UILabel()
         label.textColor = .red
@@ -100,7 +116,7 @@ class AuthenticationViewController: UIViewController, AuthValidation{
         
     }()
     
-    let passwordWarningLbl : UILabel = {
+    let passwordWarningLbl: UILabel = {
         
         let label = UILabel()
         label.textColor = .red
@@ -112,7 +128,7 @@ class AuthenticationViewController: UIViewController, AuthValidation{
         
     }()
     
-    let confirmPassWarningLbl : UILabel = {
+    let confirmPassWarningLbl: UILabel = {
         
         let label = UILabel()
         label.textColor = .red
@@ -124,17 +140,26 @@ class AuthenticationViewController: UIViewController, AuthValidation{
         
     }()
     
-    //MARK: Properties
+    // MARK: Properties
     
-    var confirmPassAnchor : NSLayoutConstraint?
-    var continueBtnAnchor : NSLayoutConstraint?
+    var confirmPassAnchor: NSLayoutConstraint?
+    var continueBtnAnchor: NSLayoutConstraint?
+    var segmentAnchor: NSLayoutConstraint?
+    var nameAnchor: NSLayoutConstraint?
+    
+    
+    let userDataBase = UserDBManager()
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
+       /**
+        - Call Setup Views
+        - Add Button targets
+        - Check if user is premium
+        */
        
         setUpViews()
     
@@ -142,13 +167,23 @@ class AuthenticationViewController: UIViewController, AuthValidation{
         segmentedControl.addTarget(self, action: #selector(sengmentedControlValueChanged), for: .valueChanged)
         continueBtn.addTarget(self, action: #selector(continueBtnPressed), for: .touchUpInside)
         
+        if  !IAPManager.shared.isPremium(){
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                
+                let navigationVC = UINavigationController(rootViewController: InAppPurchasesViewController())
+                self.present(navigationVC, animated: true, completion: nil)
+            }
+        }
+        
+        
        
     }
   
     
    
     
-    //MARK: Button Actions
+    // MARK: Button Actions
     
    
     // Segnmented Controls Actions
@@ -161,35 +196,32 @@ class AuthenticationViewController: UIViewController, AuthValidation{
              - Hide Warning  labels
              - Confirm Password alpha set 0
              */
-          
             
-            animateforSingUp(yForBtn: 50, yForPass: -12)
+            // Animate for login
+            
+            animateforSingUp(yForBtn: 50, yForPass: -12, yForName: -70, yForSegment: -140, isLogin: true)
             
             hideWarnings()
             
-            self.confirmPassword.alpha = 0
+            
             
         }else if segmentedControl.selectedSegmentIndex == 1 {
             
-            animateforSingUp(yForBtn: 110, yForPass: 50)
+            // Animate for Signup
+            animateforSingUp(yForBtn: 110, yForPass: 50, yForName: -130, yForSegment: -200, isLogin: false)
         }
     }
      
-    //MARK: Continue Button Actions
+    // MARK: Continue Button Actions
     @objc func continueBtnPressed() {
         
         if segmentedControl.selectedSegmentIndex == 1 {
-           
             
+            // Action to perform when Singup is selected
             continueSingUp()
-        }else{
-            
+        } else {
+            // Action to perform when Login is selected
             continueLoginIn()
         }
-        
-        
     }
-    
-   
-
 }

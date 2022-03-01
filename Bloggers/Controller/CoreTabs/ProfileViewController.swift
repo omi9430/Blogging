@@ -18,8 +18,19 @@ class ProfileViewController: UIViewController {
     }
     
 
-    @objc func didTapSignOut(){
-        
+    @objc func didTapSignOut() {
+        // Sing out user
+        AuthManager.shared.signOut {[weak self] success in
+            
+            // Remove email and name in User defaults
+            UserDefaults.standard.set(nil,forKey:saveEmail)
+            UserDefaults.standard.set(nil,forKey:saveName)
+            
+            // Present Auth View controller
+            let vc = AuthenticationViewController()
+            vc.modalPresentationStyle = .fullScreen
+            self?.present(vc, animated: true, completion: nil)
+        }
     }
 
 }

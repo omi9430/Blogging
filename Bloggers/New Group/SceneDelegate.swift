@@ -18,7 +18,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         
-        let vc = LaunchViewController()
+        //let vc = LaunchViewController()
+        
+        var vc : UIViewController?
+        
+        //Check if user is singed and present VC accordingly    
+        
+        vc = LaunchViewController()
+        
         window.rootViewController = vc
         window.makeKeyAndVisible()
         self.window = window

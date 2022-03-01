@@ -14,18 +14,56 @@ extension AuthenticationViewController {
     
     
     
-    //MARK: Continue for SignUp
-    func continueSingUp(){
-        do{
-            try validate(email: emailTextField.text ?? "", password: passwordTxtField.text ?? "", confirmPassword: confirmPassword.text ?? "",completion: { success in
+    // MARK: Continue for SignUp
+    func continueSingUp() {
+        
+        // Make sure no field is empty
+        guard let email = emailTextField.text,!email.isEmpty,
+              let password = passwordTxtField.text, !password.isEmpty,
+              let confirmPass = confirmPassword.text, !confirmPass.isEmpty,
+              let name = nameTxtField.text,!name.isEmpty else {
+                  return
+              }
+        do {
+            try validate(email: email, password: password, confirmPassword: confirmPass ,completion: { success in
                 if success {
                     
-                    //TODO: SignUp
+                    AuthManager.shared.signUp(email: email, password: password, confirmPassword: confirmPass) { [weak self] success in
+                        
+                        if success {
+                             // Insert user to firestore DB
+                            let newUser = UserModel(name: name, email: email, profileImage: nil)
+                            self?.userDataBase.insertUser(user: newUser) { success in
+                                
+                                if success {
+                                    
+                                    // Save email and name in User defaults
+                                    UserDefaults.standard.set(email,forKey:saveEmail)
+                                    UserDefaults.standard.set(name,forKey:saveName)
+                                    
+                                    // Present TabView Controller
+                                    let vc = TabBarViewController()
+                                    let navController = UINavigationController(rootViewController: vc)
+                                    navController.modalPresentationStyle = .fullScreen
+                                    self?.present(navController, animated: true, completion: nil)
+                                } else {
+                                    
+                                    let alert = UIAlertController(title: "Error", message: "We're having issues creating your account", preferredStyle: .alert)
+                                    let alertAction = UIAlertAction(title: "cancel", style: .cancel)
+                                    
+                                    alert.addAction(alertAction)
+                                    self?.present(alert, animated: true, completion: nil)
+                                }
+                                
+                            }
+                            
+                        }
+                    }
 
                 }
             })
             
-        }catch let errors as AuthErrors{
+        } catch let errors as AuthErrors {
             
             switch errors {
             case .emailNotValid:
@@ -69,37 +107,59 @@ extension AuthenticationViewController {
         }
     }
     
-  //MARK: Continue to Login
-    func continueLoginIn(){
+  // MARK: Continue to Login
+    func continueLoginIn() {
         
-        //TODO: Login
+        guard let email = emailTextField.text, !email.isEmpty,
+              let password = passwordTxtField.text, !password.isEmpty else {
+                  return
+              }
         
+        
+        AuthManager.shared.login(email: email, password: password) { [weak self] succcess in
+            
+            if succcess == true {
+                
+                // Save email and name in User defaults
+                UserDefaults.standard.set(email,forKey:saveEmail)
+                
+                DispatchQueue.main.async {
+                    
+                    // Present TabViewController
+                    let vc = TabBarViewController()
+                    vc.modalPresentationStyle = .fullScreen
+                    self?.present(vc, animated: true, completion: nil)
+                }
+             
+            }
+        
+        }
     }
     
     
     
-    //MARK: Animations
+    // MARK: Animations
     
-    //MARK: Animations To Show Warning
+    // MARK: Animations To Show Warning
     func animateWarnings(label: UILabel?, allLabels: [UILabel]?, txtField : UITextField?,txtFieldList : [UITextField]?){
         
         //Animate All Labels
         if allLabels != nil {
             
             confirmPassAnchor?.isActive = true
-            for i in 0...allLabels!.count - 1{
+            for item in 0...allLabels!.count - 1 {
                 
                 UIView.animate(withDuration: 0.5) {
         
                     let color = UIColor.red
-                    allLabels![i].alpha  = 1
-                    txtFieldList![i].borderStyle = .roundedRect
-                    txtFieldList![i].layer.borderWidth = 1.0
-                    txtFieldList![i].layer.borderColor = color.cgColor
+                    allLabels![item].alpha  = 1
+                    txtFieldList![item].borderStyle = .roundedRect
+                    txtFieldList![item].layer.borderWidth = 1.0
+                    txtFieldList![item].layer.borderColor = color.cgColor
        
                     self.view.layoutIfNeeded()
                 } completion: { success in
-                    //TODO: Vibration
+                    // TODO: Vibration
                    
                 }
                 
@@ -127,21 +187,33 @@ extension AuthenticationViewController {
     }
     
     //MARK: Animation For SignUp
-    func animateforSingUp(yForBtn: CGFloat,yForPass: CGFloat ){
+    func animateforSingUp(yForBtn: CGFloat,yForPass: CGFloat, yForName  : CGFloat, yForSegment : CGFloat,  isLogin : Bool ){
      
         continueBtnAnchor?.isActive = false
         confirmPassAnchor?.isActive = false
+        nameAnchor?.isActive = false
+        segmentAnchor?.isActive = false
         
+        nameAnchor = self.nameTxtField.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: yForName)
+        segmentAnchor = self.segmentedControl.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: yForSegment)
         confirmPassAnchor =  self.confirmPassword.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: yForPass)
-        
-       // continueBtnAnchor =   continueBtn.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: 110)
         continueBtnAnchor =  self.continueBtn.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: yForBtn)
+        
         confirmPassAnchor?.isActive = true
         continueBtnAnchor?.isActive = true
+        segmentAnchor?.isActive = true
+        nameAnchor?.isActive = true
+        
         UIView.animate(withDuration: 1) {
        
-            
+            self.nameTxtField.alpha = 1
             self.confirmPassword.alpha = 1
+            
+            if isLogin {
+                self.confirmPassword.alpha = 0
+                self.nameTxtField.alpha = 0
+            }
+            
             self.view.layoutIfNeeded()
             self.view.superview?.layoutIfNeeded()
       
@@ -150,19 +222,19 @@ extension AuthenticationViewController {
     
     //MARK: Hide Warnings
     
-    func hideWarnings(){
+    func hideWarnings() {
         
         let textFields = [confirmPassword,passwordTxtField,emailTextField]
         let labels = [emailWarningLbl,passwordWarningLbl,confirmPassWarningLbl]
         
         let color = UIColor.clear
         
-        for i in 0...textFields.count - 1 {
+        for txtField in 0...textFields.count - 1 {
             
-            textFields[i].borderStyle = .none
-            textFields[i].layer.borderColor = color.cgColor
+            textFields[txtField].borderStyle = .none
+            textFields[txtField].layer.borderColor = color.cgColor
             
-            labels[i].alpha = 0
+            labels[txtField].alpha = 0
         }
         
     }
@@ -172,8 +244,8 @@ extension AuthenticationViewController {
     
     
     
-    //MARK: Setup Views
-    func setUpViews(){
+    // MARK: Setup Views
+    func setUpViews() {
         
         /**
          - Background Color
@@ -186,6 +258,7 @@ extension AuthenticationViewController {
         
         
         self.view.addSubview(segmentedControl)
+        self.view.addSubview(nameTxtField)
         self.view.addSubview(emailTextField)
         self.view.addSubview(passwordTxtField)
         self.view.addSubview(confirmPassword)
@@ -219,9 +292,14 @@ extension AuthenticationViewController {
             
             // segmented control
             segmentedControl.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 0),
-            segmentedControl.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: -140),
+            //segmentedControl.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: -140),//140
             segmentedControl.widthAnchor.constraint(equalTo: self.view.widthAnchor, constant: -40),
             segmentedControl.heightAnchor.constraint(equalToConstant: 60),
+            
+            // Name
+            nameTxtField.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 0),
+            nameTxtField.widthAnchor.constraint(equalTo: self.view.widthAnchor, constant: -60),
+            nameTxtField.heightAnchor.constraint(equalToConstant: 40),
             
             // Email
             emailTextField.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 0),
@@ -238,7 +316,6 @@ extension AuthenticationViewController {
             // Confirm Password
             
             confirmPassword.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 0),
-          //  confirmPassword.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: -12),//50
             confirmPassword.widthAnchor.constraint(equalTo: self.view.widthAnchor, constant: -60),
             confirmPassword.heightAnchor.constraint(equalToConstant: 40),
             
@@ -250,12 +327,18 @@ extension AuthenticationViewController {
         ]
         
         
-        /// Creating these anchors with reference because we need to animate them
-        confirmPassAnchor = confirmPassword.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: -12)//110
+        // Creating these anchors with reference because we need to animate them
+        confirmPassAnchor = confirmPassword.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: -12)
         confirmPassAnchor?.isActive = true
         
         continueBtnAnchor =  continueBtn.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: 50)//110
         continueBtnAnchor?.isActive = true
+        
+        nameAnchor = nameTxtField.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: -70)
+        nameAnchor?.isActive = true
+        
+        segmentAnchor = segmentedControl.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: -140)
+        segmentAnchor?.isActive = true
         
         NSLayoutConstraint.activate(constraints)
     }

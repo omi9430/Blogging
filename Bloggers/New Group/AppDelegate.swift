@@ -4,6 +4,7 @@
 //
 //  Created by omair khan on 08/02/2022.
 //
+import Purchases
 import Firebase
 import UIKit
 
@@ -16,6 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         FirebaseApp.configure()
+        Purchases.configure(withAPIKey: "appl_mYMuANHjgycBJRSuvyGextIozKD")
+        
+        IAPManager.shared.getSubscritionStatus(completion: nil)
+        
         return true
     }
 

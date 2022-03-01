@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+
+struct BlogPost {
+    let identifier :  String
+    let title : String
+    let text : String
+    let timeStamp : TimeInterval
+    let headerImage : URL?
+}

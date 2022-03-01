@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		4208E00E27B922B8003FC6B8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4208E00D27B922B8003FC6B8 /* Extensions.swift */; };
+		4208E01127BAC559003FC6B8 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4208E01027BAC559003FC6B8 /* UserModel.swift */; };
+		4208E01327BAC573003FC6B8 /* BlogPostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4208E01227BAC573003FC6B8 /* BlogPostModel.swift */; };
+		4208E01527BAC7D4003FC6B8 /* UserDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4208E01427BAC7D4003FC6B8 /* UserDBManager.swift */; };
+		4208E01827BB74FC003FC6B8 /* InAppPurchasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4208E01727BB74FC003FC6B8 /* InAppPurchasesViewController.swift */; };
+		4208E01A27BB764F003FC6B8 /* InAppPurchasesExtensionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4208E01927BB764F003FC6B8 /* InAppPurchasesExtensionVC.swift */; };
+		4208E01C27BB768F003FC6B8 /* IAPHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4208E01B27BB768F003FC6B8 /* IAPHeaderView.swift */; };
+		4208E01F27BB7B6B003FC6B8 /* IAPDescritpion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4208E01E27BB7B6B003FC6B8 /* IAPDescritpion.swift */; };
+		4208E02127BBA1E5003FC6B8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4208E02027BBA1E5003FC6B8 /* GoogleService-Info.plist */; };
 		4260A0A427B27A6E00298573 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4260A0A327B27A6E00298573 /* AppDelegate.swift */; };
 		4260A0A627B27A6E00298573 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4260A0A527B27A6E00298573 /* SceneDelegate.swift */; };
 		4260A0A827B27A6E00298573 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4260A0A727B27A6E00298573 /* HomeViewController.swift */; };
@@ -25,7 +33,8 @@
 		4260A0D227B27DB900298573 /* StoreageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4260A0D127B27DB900298573 /* StoreageManager.swift */; };
 		4260A0DA27B2817000298573 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4260A0D927B2817000298573 /* TabBarViewController.swift */; };
 		4260A0E027B3EF5700298573 /* Viga-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4260A0DF27B3EF5700298573 /* Viga-Regular.ttf */; };
-		42900AEC27B4F6A800B2871A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 42900AEB27B4F6A800B2871A /* GoogleService-Info.plist */; };
+		428E320D27BE355400436326 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428E320C27BE355400436326 /* Constants.swift */; };
+		428E321427BE6A4300436326 /* StoreKitTestCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = 428E321327BE6A4300436326 /* StoreKitTestCertificate.cer */; };
 		42900AEF27B6A8B000B2871A /* AuthValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42900AEE27B6A8B000B2871A /* AuthValidation.swift */; };
 		42900AF127B6F42100B2871A /* AuthenticationFunctionsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42900AF027B6F42100B2871A /* AuthenticationFunctionsExtensions.swift */; };
 		63CA96970B4384D0605D55A9 /* Pods_Bloggers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA7B69E0AA0885E7F01E01E5 /* Pods_Bloggers.framework */; };
@@ -33,6 +42,14 @@
 
 /* Begin PBXFileReference section */
 		4208E00D27B922B8003FC6B8 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		4208E01027BAC559003FC6B8 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		4208E01227BAC573003FC6B8 /* BlogPostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogPostModel.swift; sourceTree = "<group>"; };
+		4208E01427BAC7D4003FC6B8 /* UserDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDBManager.swift; sourceTree = "<group>"; };
+		4208E01727BB74FC003FC6B8 /* InAppPurchasesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchasesViewController.swift; sourceTree = "<group>"; };
+		4208E01927BB764F003FC6B8 /* InAppPurchasesExtensionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchasesExtensionVC.swift; sourceTree = "<group>"; };
+		4208E01B27BB768F003FC6B8 /* IAPHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPHeaderView.swift; sourceTree = "<group>"; };
+		4208E01E27BB7B6B003FC6B8 /* IAPDescritpion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPDescritpion.swift; sourceTree = "<group>"; };
+		4208E02027BBA1E5003FC6B8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4260A0A027B27A6E00298573 /* Bloggers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bloggers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4260A0A327B27A6E00298573 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4260A0A527B27A6E00298573 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,7 +70,9 @@
 		4260A0D927B2817000298573 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		4260A0DF27B3EF5700298573 /* Viga-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Viga-Regular.ttf"; sourceTree = "<group>"; };
 		42817F9A30B04453F2282F85 /* Pods-Bloggers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bloggers.release.xcconfig"; path = "Target Support Files/Pods-Bloggers/Pods-Bloggers.release.xcconfig"; sourceTree = "<group>"; };
-		42900AEB27B4F6A800B2871A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		428E320C27BE355400436326 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		428E321227BE69E100436326 /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = file; name = Configuration.storekit; path = Bloggers/Configuration.storekit; sourceTree = SOURCE_ROOT; };
+		428E321327BE6A4300436326 /* StoreKitTestCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; name = StoreKitTestCertificate.cer; path = ../../../../Desktop/StoreKitTestCertificate.cer; sourceTree = "<group>"; };
 		42900AEE27B6A8B000B2871A /* AuthValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthValidation.swift; sourceTree = "<group>"; };
 		42900AF027B6F42100B2871A /* AuthenticationFunctionsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationFunctionsExtensions.swift; sourceTree = "<group>"; };
 		94AFC144805E4082F38D4AEE /* Pods-Bloggers.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bloggers.debug.xcconfig"; path = "Target Support Files/Pods-Bloggers/Pods-Bloggers.debug.xcconfig"; sourceTree = "<group>"; };
@@ -80,6 +99,24 @@
 				42817F9A30B04453F2282F85 /* Pods-Bloggers.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		4208E01627BB74D1003FC6B8 /* InAppPurchases */ = {
+			isa = PBXGroup;
+			children = (
+				4208E01727BB74FC003FC6B8 /* InAppPurchasesViewController.swift */,
+				4208E01927BB764F003FC6B8 /* InAppPurchasesExtensionVC.swift */,
+			);
+			path = InAppPurchases;
+			sourceTree = "<group>";
+		};
+		4208E01D27BB7821003FC6B8 /* InAppPurchasesSubViews */ = {
+			isa = PBXGroup;
+			children = (
+				4208E01B27BB768F003FC6B8 /* IAPHeaderView.swift */,
+				4208E01E27BB7B6B003FC6B8 /* IAPDescritpion.swift */,
+			);
+			path = InAppPurchasesSubViews;
 			sourceTree = "<group>";
 		};
 		4260A09727B27A6E00298573 = {
@@ -113,7 +150,9 @@
 				4260A0AC27B27A7200298573 /* Assets.xcassets */,
 				4260A0AE27B27A7200298573 /* LaunchScreen.storyboard */,
 				4260A0B127B27A7200298573 /* Info.plist */,
-				42900AEB27B4F6A800B2871A /* GoogleService-Info.plist */,
+				428E321227BE69E100436326 /* Configuration.storekit */,
+				428E321327BE6A4300436326 /* StoreKitTestCertificate.cer */,
+				4208E02027BBA1E5003FC6B8 /* GoogleService-Info.plist */,
 			);
 			path = Bloggers;
 			sourceTree = "<group>";
@@ -130,6 +169,8 @@
 		4260A0BA27B27BF000298573 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4208E01027BAC559003FC6B8 /* UserModel.swift */,
+				4208E01227BAC573003FC6B8 /* BlogPostModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -137,6 +178,7 @@
 		4260A0BB27B27BF800298573 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4208E01D27BB7821003FC6B8 /* InAppPurchasesSubViews */,
 				4260A0C827B27D4E00298573 /* LaunchViewController.swift */,
 			);
 			path = View;
@@ -145,6 +187,7 @@
 		4260A0BC27B27BFE00298573 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4208E01627BB74D1003FC6B8 /* InAppPurchases */,
 				4260A0D627B2806800298573 /* Posts */,
 				4260A0D527B2806300298573 /* Auth */,
 				4260A0D327B2803E00298573 /* CoreTabs */,
@@ -169,6 +212,7 @@
 				4260A0CD27B27D9F00298573 /* PostsDataBaseManager.swift */,
 				4260A0CF27B27DA800298573 /* AuthManager.swift */,
 				4260A0D127B27DB900298573 /* StoreageManager.swift */,
+				4208E01427BAC7D4003FC6B8 /* UserDBManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -214,6 +258,7 @@
 			children = (
 				42900AEE27B6A8B000B2871A /* AuthValidation.swift */,
 				4208E00D27B922B8003FC6B8 /* Extensions.swift */,
+				428E320C27BE355400436326 /* Constants.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -226,6 +271,7 @@
 			buildConfigurationList = 4260A0B427B27A7200298573 /* Build configuration list for PBXNativeTarget "Bloggers" */;
 			buildPhases = (
 				DF25D3CB1922E9EE08CD66BA /* [CP] Check Pods Manifest.lock */,
+				428E320B27BE29D700436326 /* ShellScript */,
 				4260A09C27B27A6E00298573 /* Sources */,
 				4260A09D27B27A6E00298573 /* Frameworks */,
 				4260A09E27B27A6E00298573 /* Resources */,
@@ -278,7 +324,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42900AEC27B4F6A800B2871A /* GoogleService-Info.plist in Resources */,
+				428E321427BE6A4300436326 /* StoreKitTestCertificate.cer in Resources */,
+				4208E02127BBA1E5003FC6B8 /* GoogleService-Info.plist in Resources */,
 				4260A0B027B27A7200298573 /* LaunchScreen.storyboard in Resources */,
 				4260A0AD27B27A7200298573 /* Assets.xcassets in Resources */,
 				4260A0E027B3EF5700298573 /* Viga-Regular.ttf in Resources */,
@@ -288,6 +335,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		428E320B27BE29D700436326 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
 		7D64830382A3F36DBF3093D6 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -336,20 +400,28 @@
 			files = (
 				4260A0D227B27DB900298573 /* StoreageManager.swift in Sources */,
 				4260A0D027B27DA800298573 /* AuthManager.swift in Sources */,
+				4208E01827BB74FC003FC6B8 /* InAppPurchasesViewController.swift in Sources */,
 				4260A0A827B27A6E00298573 /* HomeViewController.swift in Sources */,
+				4208E01F27BB7B6B003FC6B8 /* IAPDescritpion.swift in Sources */,
+				4208E01327BAC573003FC6B8 /* BlogPostModel.swift in Sources */,
 				4260A0C527B27D1F00298573 /* CreateNewPostViewController.swift in Sources */,
 				4260A0C127B27D0700298573 /* ProfileViewController.swift in Sources */,
 				4260A0C727B27D2C00298573 /* AuthenticationViewController.swift in Sources */,
 				42900AEF27B6A8B000B2871A /* AuthValidation.swift in Sources */,
 				4260A0A427B27A6E00298573 /* AppDelegate.swift in Sources */,
+				4208E01527BAC7D4003FC6B8 /* UserDBManager.swift in Sources */,
+				4208E01127BAC559003FC6B8 /* UserModel.swift in Sources */,
 				4260A0CC27B27D9700298573 /* IAPManager.swift in Sources */,
 				4260A0A627B27A6E00298573 /* SceneDelegate.swift in Sources */,
 				42900AF127B6F42100B2871A /* AuthenticationFunctionsExtensions.swift in Sources */,
 				4208E00E27B922B8003FC6B8 /* Extensions.swift in Sources */,
 				4260A0C927B27D4E00298573 /* LaunchViewController.swift in Sources */,
+				4208E01C27BB768F003FC6B8 /* IAPHeaderView.swift in Sources */,
+				4208E01A27BB764F003FC6B8 /* InAppPurchasesExtensionVC.swift in Sources */,
 				4260A0DA27B2817000298573 /* TabBarViewController.swift in Sources */,
 				4260A0C327B27D1000298573 /* ViewPostViewController.swift in Sources */,
 				4260A0CE27B27D9F00298573 /* PostsDataBaseManager.swift in Sources */,
+				428E320D27BE355400436326 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,7 +577,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.thoughtsBloggers;
+				PRODUCT_BUNDLE_IDENTIFIER = com.blatini.bloggers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -535,7 +607,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.thoughtsBloggers;
+				PRODUCT_BUNDLE_IDENTIFIER = com.blatini.bloggers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

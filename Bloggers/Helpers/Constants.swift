@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+
+
+let premium = "isPremium"
+let entitlementKey = "com.blatini.bloggers.product"
+let saveEmail = "email"
+let saveName = "name"

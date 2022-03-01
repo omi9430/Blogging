@@ -14,7 +14,7 @@ class LaunchViewController: UIViewController {
      - Image View
      */
     
-    let titleLabel : UILabel = {
+    let titleLabel: UILabel = {
         
         var lbl = UILabel()
         lbl.font = UIFont(name: "Thonburi-Bold", size: 30)
@@ -25,21 +25,20 @@ class LaunchViewController: UIViewController {
     }()
     
     
-    var imageView : UIImageView = {
+    var imageView: UIImageView = {
        
         var imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
         imageView.contentMode  = .center
         imageView.contentMode = .scaleAspectFit
         imageView.image = UIImage(named: "logo")
         
-        //imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
 
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //titleLabel.alpha = 0
+
         titleLabel.isHidden = true
         imageView.alpha = 1
     }
@@ -56,6 +55,7 @@ class LaunchViewController: UIViewController {
         self.view.backgroundColor = .white
 
         setUpViews()
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -68,7 +68,7 @@ class LaunchViewController: UIViewController {
     }
     
     
-    func setUpViews(){
+    func setUpViews() {
         
         
         /**
@@ -144,7 +144,15 @@ class LaunchViewController: UIViewController {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     
                     
-                    let vc = AuthenticationViewController()
+                    var vc = UIViewController()
+                    
+                    if AuthManager.shared.isSignedIn() {
+                        // if users is singed in
+                         vc = TabBarViewController()
+                    } else {
+                         vc = AuthenticationViewController()
+                    }
+                    
                     vc.modalPresentationStyle = .fullScreen
                     vc.modalTransitionStyle = .crossDissolve
                     self.present(vc, animated: true, completion: nil)
