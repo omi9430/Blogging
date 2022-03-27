@@ -18,10 +18,10 @@ extension AuthenticationViewController {
     func continueSingUp() {
         
         // Make sure no field is empty
-        guard let email = emailTextField.text,!email.isEmpty,
-              let password = passwordTxtField.text, !password.isEmpty,
-              let confirmPass = confirmPassword.text, !confirmPass.isEmpty,
-              let name = nameTxtField.text,!name.isEmpty else {
+        guard let email = emailTextField.text,
+              let password = passwordTxtField.text,
+              let confirmPass = confirmPassword.text,
+              let name = nameTxtField.text else {
                   return
               }
         do {
@@ -32,7 +32,7 @@ extension AuthenticationViewController {
                         
                         if success {
                              // Insert user to firestore DB
-                            let newUser = UserModel(name: name, email: email, profileImage: nil)
+                            let newUser = UserModel(name: name, email: email, profileRef: nil)
                             self?.userDataBase.insertUser(user: newUser) { success in
                                 
                                 if success {

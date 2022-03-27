@@ -20,13 +20,25 @@ class TabBarViewController: UITabBarController {
     
     
     private func setUpControllers() {
+        // Change navigation bar color
+        self.navigationController?
+            .navigationBar
+            .largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+    
+        let dbManager: UserDBManager = UserDBManager()
+        let postManager : PostDataBaseManager = PostDataBaseManager()
+        
+        // cached email for current user
+        guard let email = UserDefaults.standard.value(forKey: saveEmail) else  {
+            return
+        }
         
         let home = HomeViewController()
         home.title = "Home"
         home.navigationItem.largeTitleDisplayMode = .always
         
         
-        let profile = ProfileViewController()
+        let profile = ProfileViewController(email: email as? String ?? "nil", dbManager: dbManager, postManager: postManager)
         profile.title = "Profile"
         profile.navigationItem.largeTitleDisplayMode = .always
         
@@ -43,7 +55,7 @@ class TabBarViewController: UITabBarController {
         homeNav.tabBarItem = UITabBarItem(title: "house", image: UIImage(systemName: "house"), tag: 1)
         profileNav.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.circle"), tag: 1)
         
-        setViewControllers([homeNav,profileNav], animated: true)
+        setViewControllers([homeNav,profileNav],animated: true)
         
         
         

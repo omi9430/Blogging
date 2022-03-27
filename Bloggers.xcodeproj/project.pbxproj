@@ -33,6 +33,7 @@
 		4260A0D227B27DB900298573 /* StoreageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4260A0D127B27DB900298573 /* StoreageManager.swift */; };
 		4260A0DA27B2817000298573 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4260A0D927B2817000298573 /* TabBarViewController.swift */; };
 		4260A0E027B3EF5700298573 /* Viga-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4260A0DF27B3EF5700298573 /* Viga-Regular.ttf */; };
+		428D4C9327CF52A000C545C2 /* ProfileVCExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428D4C9227CF52A000C545C2 /* ProfileVCExtension.swift */; };
 		428E320D27BE355400436326 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428E320C27BE355400436326 /* Constants.swift */; };
 		428E321427BE6A4300436326 /* StoreKitTestCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = 428E321327BE6A4300436326 /* StoreKitTestCertificate.cer */; };
 		42900AEF27B6A8B000B2871A /* AuthValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42900AEE27B6A8B000B2871A /* AuthValidation.swift */; };
@@ -70,8 +71,9 @@
 		4260A0D927B2817000298573 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		4260A0DF27B3EF5700298573 /* Viga-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Viga-Regular.ttf"; sourceTree = "<group>"; };
 		42817F9A30B04453F2282F85 /* Pods-Bloggers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bloggers.release.xcconfig"; path = "Target Support Files/Pods-Bloggers/Pods-Bloggers.release.xcconfig"; sourceTree = "<group>"; };
+		428D4C9227CF52A000C545C2 /* ProfileVCExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVCExtension.swift; sourceTree = "<group>"; };
 		428E320C27BE355400436326 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		428E321227BE69E100436326 /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = file; name = Configuration.storekit; path = Bloggers/Configuration.storekit; sourceTree = SOURCE_ROOT; };
+		428E321227BE69E100436326 /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; name = Configuration.storekit; path = Bloggers/Configuration.storekit; sourceTree = SOURCE_ROOT; };
 		428E321327BE6A4300436326 /* StoreKitTestCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; name = StoreKitTestCertificate.cer; path = ../../../../Desktop/StoreKitTestCertificate.cer; sourceTree = "<group>"; };
 		42900AEE27B6A8B000B2871A /* AuthValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthValidation.swift; sourceTree = "<group>"; };
 		42900AF027B6F42100B2871A /* AuthenticationFunctionsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationFunctionsExtensions.swift; sourceTree = "<group>"; };
@@ -220,7 +222,7 @@
 		4260A0D327B2803E00298573 /* CoreTabs */ = {
 			isa = PBXGroup;
 			children = (
-				4260A0C027B27D0700298573 /* ProfileViewController.swift */,
+				428D4C9127CF527200C545C2 /* ProfileVC */,
 				4260A0A727B27A6E00298573 /* HomeViewController.swift */,
 				4260A0D927B2817000298573 /* TabBarViewController.swift */,
 			);
@@ -251,6 +253,15 @@
 				4260A0DF27B3EF5700298573 /* Viga-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		428D4C9127CF527200C545C2 /* ProfileVC */ = {
+			isa = PBXGroup;
+			children = (
+				4260A0C027B27D0700298573 /* ProfileViewController.swift */,
+				428D4C9227CF52A000C545C2 /* ProfileVCExtension.swift */,
+			);
+			path = ProfileVC;
 			sourceTree = "<group>";
 		};
 		42900AED27B6A88500B2871A /* Helpers */ = {
@@ -415,6 +426,7 @@
 				4260A0A627B27A6E00298573 /* SceneDelegate.swift in Sources */,
 				42900AF127B6F42100B2871A /* AuthenticationFunctionsExtensions.swift in Sources */,
 				4208E00E27B922B8003FC6B8 /* Extensions.swift in Sources */,
+				428D4C9327CF52A000C545C2 /* ProfileVCExtension.swift in Sources */,
 				4260A0C927B27D4E00298573 /* LaunchViewController.swift in Sources */,
 				4208E01C27BB768F003FC6B8 /* IAPHeaderView.swift in Sources */,
 				4208E01A27BB764F003FC6B8 /* InAppPurchasesExtensionVC.swift in Sources */,
